@@ -6,6 +6,6 @@ let
    callPackage = pkgs.lib.callPackageWith (pkgs // self); 
 
    self = { 
-    cpp-jwt = callPackage ./pkgs/lammps { };
+    cpp-jwt = callPackage ./pkgs/cpp-jwt { };
    }; 
 in self
