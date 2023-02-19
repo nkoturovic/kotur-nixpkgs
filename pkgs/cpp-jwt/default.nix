@@ -16,10 +16,13 @@ in stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-SUdhIV7tjtacf5DkoWk9cnkfyMlrkg8ZU7XnPZd22Tw=";
   };
 
-  nativeBuildInputs = [ cmake ];
-  buildInputs = [ nlohmann_json ];
+  nativeBuildInputs = [ cmake nlohmann_json ];
+  buildInputs = [ ];
 
   cmakeFlags = [
+    "-DCPP_JWT_BUILD_EXAMPLES=OFF"
+    "-DCPP_JWT_BUILD_TESTS=OFF"
+    "-DCPP_JWT_USE_VENDORED_NLOHMANN_JSON=OFF"
   ];
 
   # doCheck = stdenv.hostPlatform == stdenv.buildPlatform;
@@ -33,8 +36,8 @@ in stdenv.mkDerivation (finalAttrs: {
 
   meta = with lib; {
     description = "C++ json web token library";
-    # homepage = "https://json.nlohmann.me";
-    # changelog = "https://github.com/nlohmann/json/blob/develop/ChangeLog.md";
+    homepage = "https://github.com/arun11299/cpp-jwt";
+    changelog = "https://github.com/arun11299/cpp-jwt/compare/v1.3...v1.4";
     license = licenses.mit;
     platforms = platforms.all;
   };
