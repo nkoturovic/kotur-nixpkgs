@@ -28,14 +28,7 @@ in stdenv.mkDerivation (finalAttrs: {
     "-DCMAKE_INSTALL_DATADIR=$out"
   ];
 
-  # doCheck = stdenv.hostPlatform == stdenv.buildPlatform;
-
-  # skip tests that require git or modify “installed files”
-  # preCheck = ''
-  #   checkFlagsArray+=("ARGS=-LE 'not_reproducible|git_required'")
-  # '';
-
-  # postInstall = "rm -rf $out/lib64";
+  preInstall = "mkdir -p $out/include && mkdir -p $out/cmake";
 
   meta = with lib; {
     description = "C++ json web token library";
