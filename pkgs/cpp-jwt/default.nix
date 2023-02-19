@@ -28,8 +28,6 @@ in stdenv.mkDerivation (finalAttrs: {
     "-DCMAKE_INSTALL_DATADIR=$out"
   ];
 
-  preInstall = "mkdir -p $out/include && mkdir -p $out/cmake";
-
   meta = with lib; {
     description = "C++ json web token library";
     homepage = "https://github.com/arun11299/cpp-jwt";
