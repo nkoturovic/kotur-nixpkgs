@@ -13,16 +13,18 @@ in stdenv.mkDerivation (finalAttrs: {
     owner = "arun11299";
     repo = "cpp-jwt";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-SUdhIV7tjtacf5DkoWk9cnkfyMlrkg8ZU7XnPZd22Tw=";
+    # hash = "sha256-SUdhIV7tjtacf5DkoWk9cnkfyMlrkg8ZU7XnPZd22Tw=";
   };
 
-  nativeBuildInputs = [ cmake nlohmann_json ];
-  buildInputs = [ ];
+  nativeBuildInputs = [ cmake ];
+  buildInputs = [ nlohmann_json ];
 
   cmakeFlags = [
     "-DCPP_JWT_BUILD_EXAMPLES=OFF"
     "-DCPP_JWT_BUILD_TESTS=OFF"
     "-DCPP_JWT_USE_VENDORED_NLOHMANN_JSON=OFF"
+    "-DCMAKE_INSTALL_INCLUDEDIR=$out"
+    "-DCMAKE_INSTALL_DATADIR=$out"
   ];
 
   # doCheck = stdenv.hostPlatform == stdenv.buildPlatform;
