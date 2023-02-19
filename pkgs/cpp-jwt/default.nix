@@ -24,8 +24,8 @@ in stdenv.mkDerivation (finalAttrs: {
     "-DCPP_JWT_BUILD_EXAMPLES=OFF"
     "-DCPP_JWT_BUILD_TESTS=OFF"
     "-DCPP_JWT_USE_VENDORED_NLOHMANN_JSON=OFF"
-    "-DCMAKE_INSTALL_INCLUDEDIR=$out"
-    "-DCMAKE_INSTALL_DATADIR=$out"
+    "-DCMAKE_INSTALL_INCLUDEDIR=${out}"
+    "-DCMAKE_INSTALL_DATADIR=${out}"
   ];
 
   meta = with lib; {
