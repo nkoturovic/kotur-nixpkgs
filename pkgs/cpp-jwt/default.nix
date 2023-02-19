@@ -13,7 +13,7 @@ in stdenv.mkDerivation (finalAttrs: {
     owner = "arun11299";
     repo = "cpp-jwt";
     rev = "v${finalAttrs.version}";
-    # hash = "sha256-SUdhIV7tjtacf5DkoWk9cnkfyMlrkg8ZU7XnPZd22Tw=";
+    hash = "sha256-5hVsFanTCT/uLLXrnb2kMvmL6qs9RXVkvxdWaT6m4mk=";
   };
 
   nativeBuildInputs = [ cmake ];
