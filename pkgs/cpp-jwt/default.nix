@@ -7,7 +7,7 @@
 let
 in stdenv.mkDerivation (finalAttrs: {
   pname = "cpp-jwt";
-  version = "1.4.0";
+  version = "1.4";
 
   src = fetchFromGitHub {
     owner = "arun11299";
