@@ -3,6 +3,7 @@
 , fetchFromGitHub
 , cmake
 , nlohmann_json
+, openssl
 }:
 let
 in stdenv.mkDerivation (finalAttrs: {
@@ -17,7 +18,7 @@ in stdenv.mkDerivation (finalAttrs: {
   };
 
   nativeBuildInputs = [ cmake ];
-  buildInputs = [ nlohmann_json ];
+  buildInputs = [ nlohmann_json openssl ];
 
   cmakeFlags = [
     "-DCPP_JWT_BUILD_EXAMPLES=OFF"
