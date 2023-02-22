@@ -40,7 +40,7 @@
     ];
 
     buildInputs = with pkgs; [
-        fmt
+        fmt8
         sqlite
         soci
         boost174
