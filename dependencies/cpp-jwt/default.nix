@@ -3,6 +3,7 @@
 , fetchFromGitHub
 , cmake
 , nlohmann_json
+, gtest
 , openssl
 }:
 let
