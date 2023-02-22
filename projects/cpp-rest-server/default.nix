@@ -26,12 +26,12 @@
       sha256 = lock.nodes.miniCompileCommands.locked.narHash;
     },
 }: let
-  package = pkgs.gccStdenv.mkDerivation (self: {
+  package = pkgs.gcc11Stdenv.mkDerivation (self: {
     name = "cpp-rest-server";
     version = "0.0.4";
 
     nativeBuildInputs = with pkgs; [
-      gccStdenv # Also used bellow with mini_compile_commands in shell
+      gcc11Stdenv # Also used bellow with mini_compile_commands in shell
       cowsay
       ncurses
       cmake
@@ -49,7 +49,6 @@
         restinio
         asio
         kotur-nixpkgs.cpp-jwt
-        gtest
         openssl
     ];
 
@@ -93,7 +92,7 @@
 
   # Using mini_compile_commands to export compile_commands.json
   # https://github.com/danielbarter/mini_compile_commands/
-  mcc-env = (pkgs.callPackage miniCompileCommands {}).wrap pkgs.gccStdenv;
+  mcc-env = (pkgs.callPackage miniCompileCommands {}).wrap pkgs.gcc11Stdenv;
 
   # Development shell
   shell = (pkgs.mkShell.override {stdenv = mcc-env;}) {
