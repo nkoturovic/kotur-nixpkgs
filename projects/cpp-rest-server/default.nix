@@ -36,6 +36,7 @@
       ncurses
       cmake
       gnumake
+      gtest
     ];
 
     buildInputs = with pkgs; [
