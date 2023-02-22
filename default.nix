@@ -6,6 +6,7 @@ let
    callPackage = pkgs.lib.callPackageWith (pkgs // self); 
 
    self = { 
-    cpp-jwt = callPackage ./pkgs/cpp-jwt { };
+    cpp-jwt = callPackage ./dependencies/cpp-jwt { };
+    cpp-rest-server = callPackage ./projects/cpp-jwt { };
    }; 
 in self

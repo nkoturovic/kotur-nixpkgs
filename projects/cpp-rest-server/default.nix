@@ -1,6 +1,14 @@
 {
+  projPath ? ../../../cpp-rest-server,
   system ? builtins.currentSystem,
   lock ? builtins.fromJSON (builtins.readFile ./flake.lock),
+  kotur-nixpkgs ? let
+     koturPkgs = fetchTarball {
+        url = "https://github.com/nkoturovic/kotur-nixpkgs/archive/${lock.nodes.koturNixPkgs.locked.rev}.tar.gz";
+        sha256 = lock.nodes.koturNixPkgs.locked.narHash;
+     }; in import koturPkgs {
+        inherit system;
+     },
   pkgs ? let
     nixpkgs = fetchTarball {
       url = "https://github.com/NixOS/nixpkgs/archive/${lock.nodes.nixpkgs.locked.rev}.tar.gz";
@@ -17,7 +25,6 @@
       url = "https://github.com/danielbarter/mini_compile_commands/archive/${lock.nodes.miniCompileCommands.locked.rev}.tar.gz";
       sha256 = lock.nodes.miniCompileCommands.locked.narHash;
     },
-    cpp-jwt,
 }: let
   package = pkgs.gccStdenv.mkDerivation (self: {
     name = "cpp-rest-server";
@@ -41,15 +48,24 @@
         http-parser
         restinio
         asio
-        cpp-jwt
+        kotur-nixpkgs.cpp-jwt
         openssl
     ];
 
-    src = builtins.path {
-      path = ./.;
-      filter = path: type:
-        !(pkgs.lib.hasPrefix "." (baseNameOf path));
-    };
+    src = 
+        if builtins.pathExists projPath then  
+            builtins.path {
+              path = projPath;
+              filter = path: type:
+                !(pkgs.lib.hasPrefix "." (baseNameOf path));
+            } 
+        else pkgs.fetchFromGitHub {
+          owner = "nkoturovic";
+          repo = "cpp-rest-server";
+          rev = "v${self.version}";
+          hash = "sha256-5hVsFanTCT/uLLXrnb2kMvmL6qs9RXVkvxdWaT6m4mk=";
+         };
+
 
     buildDir = "build-nix-${self.name}-${self.version}";
 
@@ -92,6 +108,11 @@
       PS1="\[\e[32m\][\[\e[m\]\[\e[33m\]nix-shell\\[\e[m\]:\[\e[36m\]\w\[\e[m\]\[\e[32m\]]\[\e[m\]\\$\[\e[m\] "
       alias ll="ls -l"
       cowsay "Welcome to the '${package.name}' dev environment!" 2> /dev/null
+      ${ 
+        if builtins.pathExists projPath then  
+          "cd ${toString projPath}"
+        else "echo Project not found under ${toString projPath}, exiting ... && exit"
+       }
     '';
   };
 in
