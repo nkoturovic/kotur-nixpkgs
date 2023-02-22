@@ -28,7 +28,7 @@
 }: let
   package = pkgs.gcc11Stdenv.mkDerivation (self: {
     name = "cpp-rest-server";
-    version = "v0.4";
+    version = "0.4";
 
     nativeBuildInputs = with pkgs; [
       gcc11Stdenv # Also used bellow with mini_compile_commands in shell
@@ -63,7 +63,7 @@
         else pkgs.fetchFromGitHub {
           owner = "nkoturovic";
           repo = "cpp-rest-server";
-          rev = "v${self.version}";
+          rev = "${self.version}";
          };
 
 
