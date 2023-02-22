@@ -64,7 +64,6 @@
           owner = "nkoturovic";
           repo = "cpp-rest-server";
           rev = "v${self.version}";
-          hash = "sha256-5hVsFanTCT/uLLXrnb2kMvmL6qs9RXVkvxdWaT6m4mk=";
          };
 
 
