@@ -18,7 +18,7 @@ in stdenv.mkDerivation (finalAttrs: {
   };
 
   nativeBuildInputs = [ cmake ];
-  buildInputs = [ nlohmann_json openssl ];
+  buildInputs = [ nlohmann_json gtest openssl ];
 
   cmakeFlags = [
     "-DCPP_JWT_BUILD_EXAMPLES=OFF"
