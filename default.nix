@@ -7,6 +7,6 @@ let
 
    self = { 
     cpp-jwt = callPackage ./dependencies/cpp-jwt { };
-    cpp-rest-server = callPackage ./projects/cpp-jwt { };
+    cpp-rest-server = callPackage ./projects/cpp-rest-server { };
    }; 
 in self
