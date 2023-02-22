@@ -63,7 +63,7 @@
         else pkgs.fetchFromGitHub {
           owner = "nkoturovic";
           repo = "cpp-rest-server";
-          rev = "${self.version}";
+          rev = "v${self.version}";
          };
 
 
