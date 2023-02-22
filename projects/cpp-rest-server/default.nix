@@ -36,7 +36,6 @@
       ncurses
       cmake
       gnumake
-      gtest
     ];
 
     buildInputs = with pkgs; [
@@ -50,6 +49,7 @@
         restinio
         asio
         kotur-nixpkgs.cpp-jwt
+        gtest
         openssl
     ];
 
