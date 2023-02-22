@@ -34,6 +34,7 @@
       gcc11Stdenv # Also used bellow with mini_compile_commands in shell
       cowsay
       ncurses
+      gtest
       cmake
       gnumake
     ];
