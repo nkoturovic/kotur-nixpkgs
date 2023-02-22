@@ -17,11 +17,11 @@
     "koturNixPkgs": {
       "flake": false,
       "locked": {
-        "lastModified": 1677069501,
-        "narHash": "sha256-jwi4XUIzooyvHz4ODaIM8MJ2egf9Qw7dvszbLR44O/o=",
+        "lastModified": 1677069591,
+        "narHash": "sha256-sShN9vwJ0H50ync/IEYoW1ngW7u3helbYUlNtJRV1aY=",
         "owner": "nkoturovic",
         "repo": "kotur-nixpkgs",
-        "rev": "5aed625a8d55d21c4afdad77ac6fa8cc8b35057a",
+        "rev": "3b2f7e8d8b8a62fbc701b127ed2be41127f95e03",
         "type": "github"
       },
       "original": {
