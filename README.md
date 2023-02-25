@@ -3,6 +3,20 @@
 
 # kotur-nixpkgs
 
-Custom nixpkgs (like) channel repository.
+Custom nixpkgs channel repository
 
-- Project using the channel:
+## Building packages
+
+Building a package from the channel
+
+```sh
+# Building the dinosay package
+nix-build -A dinosay # traditional way
+nix build .#dinosay  # flakes way
+./result/bin/dinosay -r "Hello $USER" # run dinosay
+```
+
+## Demo projects where this repo is used
+
+- [cpp-nix-project-template](https://github.com/nkoturovic/cpp-nix-project-template) - C++ and nix starter project template
+- [cpp-rest-server](https://github.com/nkoturovic/cpp-rest-server) - Demo showcase application
