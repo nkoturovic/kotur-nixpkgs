@@ -5,8 +5,8 @@
 , nlohmann_json
 , openssl
 }:
-let
-in stdenv.mkDerivation (finalAttrs: {
+
+stdenv.mkDerivation (finalAttrs: {
   pname = "cpp-jwt";
   version = "1.4";
 
