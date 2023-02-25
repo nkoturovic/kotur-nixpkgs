@@ -1,8 +1,9 @@
 { system ? builtins.currentSystem,
+  lock ? builtins.fromJSON (builtins.readFile ./flake.lock),
   pkgs ? let
     nixpkgs = fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/50c23cd4ff6c8344e0b4d438b027b3afabfe58dd.tar.gz";
-      sha256 = "sha256-+peLp16ruWLuTFHo0ZUbLlS1/meS/+RsWQQ9bUAzOh8=";
+      url = "https://github.com/NixOS/nixpkgs/archive/${lock.nodes.nixpkgs.locked.rev}.tar.gz";
+      sha256 = lock.nodes.nixpkgs.locked.narHash;
     };
   in
     import nixpkgs {
@@ -17,4 +18,4 @@
      cpp-jwt = callPackage ./pkgs/cpp-jwt { };
      dinosay = callPackage ./pkgs/dinosay { };
    }; 
-in self
+in self 
