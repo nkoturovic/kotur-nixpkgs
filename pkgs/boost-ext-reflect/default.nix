@@ -16,8 +16,8 @@ stdenv.mkDerivation (finalAttrs: {
 
   phases = [ "unpackPhase" "installPhase" ];
   installPhase = ''
-    mkdir -p $out/include
-    cp $src/reflect $out/include/reflect
+    mkdir -p $out/include/boost-ext
+    cp $src/reflect $out/include/boost-ext/reflect.hpp
    '';
 
   meta = with lib; {

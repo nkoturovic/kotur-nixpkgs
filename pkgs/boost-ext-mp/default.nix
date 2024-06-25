@@ -16,8 +16,8 @@ stdenv.mkDerivation (finalAttrs: {
 
   phases = [ "unpackPhase" "installPhase" ];
   installPhase = ''
-    mkdir -p $out/include
-    cp $src/mp $out/include/mp
+    mkdir -p $out/include/boost-ext
+    cp $src/mp $out/include/boost-ext/mp.hpp
    '';
 
   meta = with lib; {
