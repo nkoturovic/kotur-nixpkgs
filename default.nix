@@ -17,5 +17,7 @@
    self = { 
      cpp-jwt = callPackage ./pkgs/cpp-jwt { };
      dinosay = callPackage ./pkgs/dinosay { };
+     boost-ext-mp = callPackage ./pkgs/boost-ext-mp { };
+     boost-ext-reflect = callPackage ./pkgs/boost-ext-reflect { };
    }; 
 in self 
