@@ -14,8 +14,9 @@
  }:
  let
    callPackage = pkgs.lib.callPackageWith (pkgs // self); 
-   self = { 
-     cpp-jwt = callPackage ./pkgs/cpp-jwt { };
-     dinosay = callPackage ./pkgs/dinosay { };
-   }; 
+    self = { 
+      cpp-jwt = callPackage ./pkgs/cpp-jwt { };
+      dinosay = callPackage ./pkgs/dinosay { };
+      whisper-cpp = callPackage ./pkgs/whisper-cpp { };
+    };
 in self 
